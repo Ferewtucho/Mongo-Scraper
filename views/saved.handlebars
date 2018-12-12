@@ -1,0 +1,66 @@
+<nav class="navbar navbar-light navbar-expand-lg bg-light">
+    <a class="navbar-brand" href="/home" style="color: #fefefe">Mongo Scraper</a>
+    <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01"
+        aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <ul class="nav navbar-nav">
+        <li><a href="/home">Home</a></li>
+        <li class="active"><a href="/savedArticles">Saved Articles<span class="sr-only">(current)</span></a></li>
+    </ul>
+</nav>
+
+<div class="jumbotron sect welcome jumbotron-bg" id="intro" data-aos="zoom-out-right">
+    <div class="top" data-aos="fade-up">
+        <img src="img/the-verge-logo.png" alt="logo"> Edition
+        <h2 style="font-family: 'Noto Serif SC', serif;">Saved Articles</h2>
+    </div>
+</div>
+<br>
+<br>
+{{!-- pannels for each article --}}
+<div class="container">
+    {{#each articles}}
+    <div class="panel panel-info">
+        <div class="panel-heading">
+            <h3 class="panel-title">{{this.title}}</h3>
+            <div id="savedArticleButtons">
+                <br>
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#commentsModal" data="{{this._id}}"
+                    aria-hidden="true">ARTICLE COMMENTS</button>
+
+                <button type="submit" class="btn btn-danger deleteFromSaved" data="{{this._id}}">DELETE FROM SAVED</button>
+
+                <!-- Modal -->
+                <div id="commentsModal" class="modal fade" role="dialog">
+                    <div class="modal-dialog">
+
+                        <!-- Modal content-->
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close closeCommentModal" data-dismiss="modal">&times;</button>
+                                <h4 class="modal-title">Article id: {{this.id}}</h4>
+                            </div>
+                            <div class="modal-body">
+
+                                <input type="hidden" value={{this.id}} class="articleId" />
+                                <textarea type="text" class="form-control commentBody" placeholder="Add comment here"></textarea>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="submit" class="btn btn-default commentSubmit" data-dismiss="modal">Submit</button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="panel-body">
+            <a href="{{this.link}}" target="_blank" style="color:black;">{{this.link}}</a>
+        </div>
+    </div>
+    {{/each}}
+</div>
+<br>
+<br>
+<br>

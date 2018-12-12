@@ -1,0 +1,70 @@
+<nav class="navbar navbar-light navbar-expand-lg bg-light">
+    <a class="navbar-brand" id = "logo" href="/home" style = "color: #fefefe">Mongo Scraper</a>
+    <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01"
+        aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarColor01">
+        <ul class="nav navbar-nav mr-auto">
+            <li class="active"><a href="/home">Home <span class="sr-only">(current)</span></a></li>
+            <li><a href="/savedArticles">Saved Articles</a></li>
+        </ul>
+    </div>
+    <form class="form-inline">
+        <button class="btn btn-outline-success" type="button" id="scrapeNewArticles" data-toggle="modal" data-target="#scrapeModal"
+            aria-hiden="true">SCRAPE NEW ARTICLES</button>
+    </form>
+
+</nav>
+
+<div class="jumbotron sect welcome jumbotron-bg" id="intro" data-aos="zoom-out-right">
+    <div class="top" data-aos="fade-up">
+        <img src="img/the-verge-logo.png" alt="logo"> Edition
+        <h2 style = "font-family: 'Noto Serif SC', serif;">Mongoose Scraper</h2>
+    </div>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="scrapeModal" tabindex="-1">
+    <div class="modal-dialog">
+
+        {{!-- modal content --}}
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Scraped Articles</h5>
+                <button type="button" class="close closeScrapeModal" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                Articles scraped
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary close closeScrapeModal" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="articles container">
+    {{!-- pannels for each article --}}
+    {{#each articles}}
+    <li id="articlesLi">
+        <div class="panel panel-info">
+            <div class="panel-heading">
+                <h3 class="panel-title">{{this.title}}</h3>
+                {{!-- <div id="articleButtons"> --}}
+                    <br>
+                    <button type="button" class="btn btn-outline-success saveArticleButton" data="{{this._id}}">SAVE
+                        ARTICLE</button>
+                    {{!-- </div> --}}
+            </div>
+            <div class="panel-body">
+                <a href = "{{this.link}}" target = "_blank" style = "color:black;">{{this.link}}</a>
+            </div>
+        </div>
+    </li>
+    {{/each}}
+</div>
