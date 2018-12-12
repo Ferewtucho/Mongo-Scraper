@@ -1,0 +1,79 @@
+@import url(https://fonts.googleapis.com/css?family=Noto+Serif+SC);
+
+body, html {
+    /* background-image: url("/assets/images/background.jpg"); */
+    margin: 0;
+    height: 100%;
+    background-color: #000000;
+    font-family: 'Noto Serif SC', serif;
+}
+nav {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+}
+
+.navbar,.navbar-light,.navbar-expand-lg,.bg-light {
+    background-color: #202020 !important;
+}
+
+#logo:hover{
+    color: #49a54c !important;
+}
+
+.sect {
+    height: 100%;
+    background-color : #2a2a2a !important;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: relative; 
+    background-position: center;
+    background: transparent;
+}
+
+.welcome {
+    background-image: url("../img/tech.jpg");
+    text-align: center;
+    background-blend-mode: soft-light soft-light;
+    background-attachment: fixed;
+    height: 70%;
+    width: 100%;
+}
+
+li {
+    list-style: none;
+}
+#articlesLi {
+    background-color: #2a2a2a !important;
+    border-radius: 4px !important;
+    border-color: #2a2a2a !important;
+    box-shadow: 0 1px 4px #2a2a2a;
+}
+
+.panel-info>.panel-heading {
+    background-color: #2a2a2a;
+    border-color: #2a2a2a;
+    box-shadow: 0 1px 4px #2a2a2a;
+}
+.panel-info {
+    border-color: #2a2a2a;
+    border-radius: 4px !important;
+    box-shadow: 0 0 4px 0 #fefefe;
+}
+
+.top {
+    margin-top: 130px;
+    color: #fefefe;
+}
+
+.deleteNote {
+	display: inline-block;
+}
+
+.previousNotes {
+    display: inline-block;
+    width: 90%
+}
+
+#scrape {
+    margin: 8px 0px;
+}
