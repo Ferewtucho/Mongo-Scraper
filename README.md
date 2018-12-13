@@ -2,6 +2,8 @@
 
 <h2>Scraper App of The Verge - MongoDB Node Express Handlebars</h2>
 
+<img src="public/img/the-verge-logo.pmg" alt="the vegre" >
+
 <h3>Overview</h3>
 <hr>
 An app that uses cheerio and mongoose packages to scrape New York Times site. It display articles and allows them to be saved. Once saved visitors can add comments, and delete them.
