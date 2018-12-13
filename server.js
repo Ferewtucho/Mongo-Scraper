@@ -25,8 +25,13 @@ app.use(express.static("public"));
 // mongoose.connect("mongodb://heroku_x47x0m1n:ilca1h3udkbmrq5v8o1mi766t5@ds051523.mlab.com:51523/heroku_x47x0m1n");
 // var db = mongoose.connection;
 
-mongoose.connect("mongodb://localhost/techNews");
+// If deployed, use the deployed database. Otherwise use the local mongoHeadlines database
+var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/techNews";
+
+mongoose.connect(MONGODB_URI);
 var db = mongoose.connection;
+// mongoose.connect("mongodb://localhost/techNews");
+
 
 // Show any mongoose errors
 db.on("error", function(error){
