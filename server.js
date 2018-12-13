@@ -22,6 +22,9 @@ app.use(bodyParser.urlencoded({
 // Make the public file a static dir
 app.use(express.static("public"));
 
+// mongoose.connect("mongodb://heroku_x47x0m1n:ilca1h3udkbmrq5v8o1mi766t5@ds051523.mlab.com:51523/heroku_x47x0m1n");
+// var db = mongoose.connection;
+
 mongoose.connect("mongodb://localhost/techNews");
 var db = mongoose.connection;
 

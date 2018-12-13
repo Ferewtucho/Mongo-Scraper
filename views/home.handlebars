@@ -1,13 +1,13 @@
 <nav class="navbar navbar-light navbar-expand-lg bg-light">
-    <a class="navbar-brand" id = "logo" href="/home" style = "color: #fefefe">Mongo Scraper</a>
+    <a class="navbar-brand" id="logo" href="/" style="color: #fefefe">Mongo Scraper</a>
     <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01"
         aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarColor01">
         <ul class="nav navbar-nav mr-auto">
-            <li class="active"><a href="/home">Home <span class="sr-only">(current)</span></a></li>
-            <li><a href="/savedArticles">Saved Articles</a></li>
+            <li class="active"><a href="/">Home <span class="sr-only">(current)</span></a></li>
+            <li><a href="/saved">Saved Articles</a></li>
         </ul>
     </div>
     <form class="form-inline">
@@ -20,10 +20,33 @@
 <div class="jumbotron sect welcome jumbotron-bg" id="intro" data-aos="zoom-out-right">
     <div class="top" data-aos="fade-up">
         <img src="img/the-verge-logo.png" alt="logo"> Edition
-        <h2 style = "font-family: 'Noto Serif SC', serif;">Mongoose Scraper</h2>
+        <h2 style="font-family: 'Noto Serif SC', serif;">Mongoose Scraper</h2>
     </div>
 </div>
-
+<div class="articles container">
+    {{#if article}}
+    {{#each article}}
+    <li id="articlesLi">
+        <div class="panel panel-info">
+            <div class="panel-heading">
+                <h3 class="panel-title">{{this.title}}</h3>
+            </div>
+            <div class="panel-body">
+                <a href={{this.link}} target="_blank" style = "color:black">{{this.link}}</a>
+                <br><br>
+                <button type="button" class=" btn btn-outline-success saveArticleButton" data={{this._id}}>Save Article</button>
+            </div>
+        </div>
+        {{/each}}
+        {{else}}
+    </li>
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <h4>Uh Oh. Looks like we don't have any new articles.</h4>
+        </div>
+    </div>
+    {{/if}}
+</div>
 
 <!-- Modal -->
 <div class="modal fade" id="scrapeModal" tabindex="-1">
@@ -45,26 +68,4 @@
             </div>
         </div>
     </div>
-</div>
-
-
-<div class="articles container">
-    {{!-- pannels for each article --}}
-    {{#each articles}}
-    <li id="articlesLi">
-        <div class="panel panel-info">
-            <div class="panel-heading">
-                <h3 class="panel-title">{{this.title}}</h3>
-                {{!-- <div id="articleButtons"> --}}
-                    <br>
-                    <button type="button" class="btn btn-outline-success saveArticleButton" data="{{this._id}}">SAVE
-                        ARTICLE</button>
-                    {{!-- </div> --}}
-            </div>
-            <div class="panel-body">
-                <a href = "{{this.link}}" target = "_blank" style = "color:black;">{{this.link}}</a>
-            </div>
-        </div>
-    </li>
-    {{/each}}
 </div>

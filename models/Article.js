@@ -1,27 +1,27 @@
-// requie mongoose
+// Require mongoose
 var mongoose = require("mongoose");
-// Create Schema Class
-var Schema  = mongoose.Schema;
+var Note = require("./Note");
+// Create Schema class
+var Schema = mongoose.Schema;
 
-// Create artivle schema
+// Create article schema
 var ArticleSchema = new Schema({
-	title: {
-		type: String,
-		required: true
-	},
-	link: {
-		type: String,
-		reuired: true
-	},
-	saved: {
-		type: Boolean,
-		default: false
-	},
-	// This saves on comment's ObjectId, ref refers to the Comment model
-	comments: {
-		type: Schema.Types.ObjectId,
-		ref: "Comment"
-	}
+  title: {
+    type: String,
+    required: true
+  },
+  link: {
+    type: String,
+    required: true
+  },
+  saved: {
+    type: Boolean,
+    default: false
+  },
+  notes: [{
+     type: Schema.Types.ObjectId,
+     ref: "Note"
+  }]
 });
 
 // Create the Article model with the ArticleSchema

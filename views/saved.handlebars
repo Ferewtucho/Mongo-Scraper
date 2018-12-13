@@ -1,12 +1,12 @@
 <nav class="navbar navbar-light navbar-expand-lg bg-light">
-    <a class="navbar-brand" href="/home" style="color: #fefefe">Mongo Scraper</a>
+    <a class="navbar-brand" href="/" style="color: #fefefe">Mongo Scraper</a>
     <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01"
         aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
     <ul class="nav navbar-nav">
-        <li><a href="/home">Home</a></li>
-        <li class="active"><a href="/savedArticles">Saved Articles<span class="sr-only">(current)</span></a></li>
+        <li><a href="/">Home</a></li>
+        <li class="active"><a href="/saved">Saved Articles<span class="sr-only">(current)</span></a></li>
     </ul>
 </nav>
 
@@ -18,49 +18,72 @@
 </div>
 <br>
 <br>
-{{!-- pannels for each article --}}
 <div class="container">
-    {{#each articles}}
-    <div class="panel panel-info">
+    {{#if article}}
+    {{#each article}}
+    <div class="panel panel-default">
         <div class="panel-heading">
             <h3 class="panel-title">{{this.title}}</h3>
-            <div id="savedArticleButtons">
-                <br>
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#commentsModal" data="{{this._id}}"
-                    aria-hidden="true">ARTICLE COMMENTS</button>
-
-                <button type="submit" class="btn btn-danger deleteFromSaved" data="{{this._id}}">DELETE FROM SAVED</button>
-
-                <!-- Modal -->
-                <div id="commentsModal" class="modal fade" role="dialog">
-                    <div class="modal-dialog">
-
-                        <!-- Modal content-->
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <button type="button" class="close closeCommentModal" data-dismiss="modal">&times;</button>
-                                <h4 class="modal-title">Article id: {{this.id}}</h4>
-                            </div>
-                            <div class="modal-body">
-
-                                <input type="hidden" value={{this.id}} class="articleId" />
-                                <textarea type="text" class="form-control commentBody" placeholder="Add comment here"></textarea>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="submit" class="btn btn-default commentSubmit" data-dismiss="modal">Submit</button>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
         </div>
         <div class="panel-body">
-            <a href="{{this.link}}" target="_blank" style="color:black;">{{this.link}}</a>
+            <div id="savedArticleButtons">
+                <a href={{this.link}} target="_blank">{{this.link}}</a>
+                <br><br>
+                <button type="button" class="btn btn-primary addNote" data-toggle="modal" data-target="#noteModal{{this._id}}"
+                    data-id={{this._id}}>ARTICLE COMMENTS</button>
+                <button type="button" class="btn btn-danger deleteFromSaved" data={{this._id}}>Delete</button>
+            </div>
         </div>
     </div>
     {{/each}}
+    {{else}}
+
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <h4>You have no saved articles.</h4>
+        </div>
+    </div>
+    {{/if}}
+
 </div>
+{{#each article}}
+<div class="modal fade modalNote" id="noteModal{{this._id}}" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Notes for {{this.title}}</h4>
+            </div>
+            <div class="modal-body">
+                {{#if this.notes}}
+                {{#each this.notes}}
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <p class="previousNotes"> {{this.body}}</p>
+                        <button type="button" class="btn btn-danger deleteNote" data-note-id={{this._id}}
+                            data-article-id={{this.article}}>X</button>
+                    </div>
+                </div>
+                {{/each}}
+                {{else}}
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <h4>No notes for this article yet.</h4>
+                    </div>
+                </div>
+                {{/if}}
+                <div class="form-group">
+                    <textarea id="noteText{{this._id}}" class="form-control" rows="4" placeholder="New Note"></textarea>
+                </div>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary saveNote" data-id={{this._id}}>Save Note</button>
+            </div>
+        </div>
+    </div>
+</div>
+{{/each}}
 <br>
 <br>
 <br>

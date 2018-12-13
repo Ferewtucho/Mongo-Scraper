@@ -38,7 +38,13 @@ nav {
     height: 70%;
     width: 100%;
 }
-
+.deleteNote {
+	display: inline-block;
+}
+.previousNotes {
+    display: inline-block;
+    width: 90%
+}
 li {
     list-style: none;
 }
