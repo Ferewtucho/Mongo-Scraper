@@ -26,6 +26,7 @@ An app that uses cheerio and mongoose packages to scrape New York Times site. It
 <li>cheerio</li>
 <li>mongoose</li>
 <li>request</li>
+</ul>
 <hr>
 
 
