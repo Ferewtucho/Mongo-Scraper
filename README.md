@@ -6,7 +6,7 @@
 
 <h3>Overview</h3>
 <hr>
-An app that uses cheerio and mongoose packages to scrape New York Times site. It display articles and allows them to be saved. Once saved visitors can add comments, and delete them.
+An app that uses cheerio and mongoose packages to scrape<a href = "https://www.theverge.com/" target = "_blank"> The Verge site<a>. It display articles and allows them to be saved. Once saved visitors can add comments, and delete them.
 <br>
 <h3>Installation Instructions</h3>
 <hr>
@@ -29,6 +29,6 @@ An app that uses cheerio and mongoose packages to scrape New York Times site. It
 <li>request</li>
 </ul>
 <hr>
- <h5>Click <a href = "https://quiet-brushlands-45736.herokuapp.com/" target = "_blank"><strong>Here</strong></a> to checkout the app.
+<h5>Click <a href = "https://quiet-brushlands-45736.herokuapp.com/" target = "_blank"><strong>Here</strong></a> to checkout the app.</h5>
 
 
