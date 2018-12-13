@@ -2,7 +2,7 @@
 
 <h2>Scraper App of The Verge - MongoDB Node Express Handlebars</h2>
 
-<img src="public/img/the-verge-logo.pmg" alt="the vegre" >
+<img src="/public/img/the-verge-logo.pmg" alt="the vegre" >
 
 <h3>Overview</h3>
 <hr>
