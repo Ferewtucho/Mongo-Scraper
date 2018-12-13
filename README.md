@@ -17,7 +17,7 @@ An app that uses cheerio and mongoose packages to scrape New York Times site. It
 <li>Run node server.js the console should log the port number the app will be on (currently 3000).</li>
 <li>Go to your browser and type <a href = "http://localhost:3000/" target = "_blank">http://localhost:3000/<a> to view app.</li>
 </ol>
-  <h5>Click <a href = "" target = "_blank"><strong>Here</strong></a> to checkout the app.
+
 <h3>Technologies Used</h3>
 <hr>
 <ul>
@@ -29,5 +29,6 @@ An app that uses cheerio and mongoose packages to scrape New York Times site. It
 <li>request</li>
 </ul>
 <hr>
+ <h5>Click <a href = "" target = "_blank"><strong>Here</strong></a> to checkout the app.
 
 
