@@ -29,6 +29,6 @@ An app that uses cheerio and mongoose packages to scrape<a href = "https://www.t
 <li>request</li>
 </ul>
 <hr>
-<h5>Click <a href = "https://quiet-brushlands-45736.herokuapp.com/" target = "_blank"><strong>Here</strong></a> to checkout the app.</h5>
+<h5>View the deployed Application <a href = "https://quiet-brushlands-45736.herokuapp.com/" target = "_blank"><strong>Here</strong></a>.</h5>
 
 
